@@ -37,10 +37,7 @@ public class Tile{
         "Ressources : " + Shell.toStringTokenSmallFormat(this.ressources, "  ") + "\n----------";
     }
 
-    /**
-     * Getter method for an Object of type Tile.
-     * @return Number of prestiges of the tile.
-     */
+  
     public int getPrestiges() {
         return this.prestiges;
     }
