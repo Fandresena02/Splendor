@@ -14,8 +14,8 @@ import java.util.function.BiPredicate;
 
 /**
  * Class allowing to read a file and to extract information from it.
- * @author Adam GUEDDARI / Christine LI
- * @date 22/10/2021
+ * @author Christine LI - Clement LUC - Fandresena RAKOTOMAHEFA
+ * @date 18/12/2022
  * @file Import.java
  */
 public class Import {
