@@ -40,7 +40,6 @@ javadoc:
 	javadoc -d ./docs/javadoc/ ./src/*.java
 
 help:
-	@echo "[MakeFile] > javadoc : generate documentation for all java files."
 	@echo "[MakeFile] > help : print help for user."
 	@echo "[MakeFile] > clean : clean all class files ."
 	@echo "[MakeFile] > execute : execute Main.java from compiled files."
