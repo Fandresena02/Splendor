@@ -12,12 +12,26 @@ import java.util.Scanner;
 import java.util.function.BiFunction;
 import java.util.function.BiPredicate;
 
+/**
+ * Class allowing to read a file and to extract information from it.
+ * @author Adam GUEDDARI / Christine LI
+ * @date 22/10/2021
+ * @file Import.java
+ */
 public class Import {
-
+    /**
+     * Fields of the Import class.
+     * @param BEGINFILECARDS 
+     * @param BEGINFILETILES 
+     */
     private final static int BEGINFILECARDS = 3;
 
     /**
-     * Methode permettant de charger les cartes de developpement
+     * Method that loads a type of cards.
+     * @param <T>
+     * @param <T>
+     * @param path Path of the file.
+     * @return List of the card of the file.
      */
     public static  <T> List<T> loadCards(Path path, BiFunction<String, String, T> function, BiPredicate<String, String> function2) throws IOException {
         Objects.requireNonNull(path);
@@ -28,7 +42,7 @@ public class Import {
             var listCards = new ArrayList<T>();
             String tmpStr = new String();
             String refline = "";
-            for (tmpStr = reader.readLine(); tmpStr != null; tmpStr = reader.readLine()) {
+            for (tmpStr = reader.readLine(); tmpStr != null; tmpStr = reader.readLine()) { 
                 if (cmpt >= BEGINFILECARDS){
                     if (/*Card.convertTextToCard(tmpStr, ",")*/function2.test(tmpStr, ",")) {
                         refline = tmpStr;
@@ -44,9 +58,10 @@ public class Import {
             return listCards;
         }
     }
-
     /**
-     * Methode permettant de charger les cartes de développement sur le plateau de jeu en fonction de leur niveau de jeu
+     * Method that loads the cards in the deck according to their level.
+     * @param path Path of the file.
+     * @return List of the card of the file.
      */
     public static Map<Integer, ArrayList<DevCard>> loadDevCardsByLevel(Path path) throws IOException {
         Objects.requireNonNull(path);
@@ -58,9 +73,10 @@ public class Import {
         //System.out.println(mapLevel);
         return mapLevel;
     }
-
     /**
-     * Methode permettant de charger les tuiles de jeu sur le plateau de jeu
+     * Method that loads the game tiles.
+     * @param path Path of the file.
+     * @return List of the tile of the file.
      */
     public static List<Tile> loadTiles(Path path) throws IOException {
         Objects.requireNonNull(path);
@@ -69,8 +85,12 @@ public class Import {
         Collections.shuffle(result);
         return result;
     }
-
-
+    
+    /**
+     * Method that assigns to each element of the list an index, starting at 0
+     * @param lst List to modify
+     * @return Map of the element from the list
+     */
     public static <T> Map<T, Integer> colorHash(List<T>lst) {
         Objects.requireNonNull(lst);
 
@@ -83,20 +103,23 @@ public class Import {
         }
         return hash;
     }
-
+    
     /**
-     * Methode qui récupère la valeur des ressources pour chaque carte de jeu du fichier
+     * Method that imports the resources from the file. 
+     * @param text The text to import from the file.
+     * @param debColonne The column from which you start to browse the values
+     * @return The resources of the file 
      */
     public static Map<Token, Integer> importRessources(String[] text, int debColonne) {
         Objects.requireNonNull(text);
-
+        
         int index;
         var ressources = new HashMap<Token, Integer>();
         var order = List.of('w', 'u', 'g', 'r', 'k');
         var colorPrice = Import.colorHash(List.of('g', 'w', 'u', 'k', 'r'));
         for (index = debColonne; index < text.length; index++) {
             if (!text[index].equals("")) {
-                var key = colorPrice.get(order.get(index - debColonne));
+                var key = colorPrice.get(order.get(index - debColonne)); 
                 ressources.put(Token.values()[key], Integer.parseInt(text[index]));
             }
         }
@@ -104,7 +127,11 @@ public class Import {
     }
 
     /**
-     * Methode permettant de verifier si le texte entré est bien un String et s'il valide bien les conditions de la methode
+     * Method that checks if the text entered is a String and the conditions of the method.
+     * @param scan Scanner
+     * @param listToCompare list to compare
+     * @param textToPrint String to print
+     * @return String
      */
     public static String inputStr(Scanner scan, List<String> listToCompare, String textToPrint) {
         Objects.requireNonNull(scan);
@@ -114,13 +141,16 @@ public class Import {
         while(validStr == null || !listToCompare.contains(validStr)) {
             System.out.println("Mauvaise saisie");
             validStr = scan.next();
-        }
+        } 
         return validStr;
     }
 
     /**
      * Method that checks if the text entered is an integer and the conditions of the method.
-     * Methode permettant de verifier si le texte entré est bien un integer et s'il valide bien les conditions de la methode
+     * @param scan Scanner
+     * @param textToPrint Text to print
+     * @param defaultCompare Integer 
+     * @return Integer
      */
     public static Integer inputInt(Scanner scan, String textToPrint, int defaultCompare) {
         Objects.requireNonNull(scan);
@@ -130,12 +160,13 @@ public class Import {
         while (valid == null || valid > defaultCompare) {
             System.out.println("Mauvaise saisie");
             valid = Import.tryParse(scan);
-        }
+        } 
         return valid;
     }
-
     /**
-     * Methode permettant de verifier si une chaine de caractère peut etre transformé en integer
+     * Method verify if the string can be converted to an integer
+     * @param scan Scanner
+     * @return Integer
      */
     public static Integer tryParse(Scanner scan) {
         Objects.requireNonNull(scan);
