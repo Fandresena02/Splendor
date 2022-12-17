@@ -4,7 +4,7 @@ import java.util.Scanner;
 /**
  * Class Main, which initializes the game by retrieving the player's answers entered on the command line.
  * @author Christine LI - Clement LUC - Fandresena RAKOTOMAHEFA
- * @date //2022
+ * @date 18/12/2022
  * @file Main.java
  */
 public class Main {
