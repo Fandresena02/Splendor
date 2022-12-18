@@ -9,7 +9,16 @@ import java.util.Objects;
  * @file Rules.java
  */
 public class Rules {
-
+    /**
+     * Field of the Rules Class.
+     * @param pointsForVictory points for victory.
+     * @param maxPlayer max of players.
+     * @param phase1 name of basic game.
+     * @param phase2 name of complete game.
+     * @param nbLevel Number of Levels;
+     * @param nbTokens Number of tokens for each color.
+     * @param mode mode of the game.
+     */
     private final int pointsForVictory = 15;
     private final int maxPlayers = 3;
 
