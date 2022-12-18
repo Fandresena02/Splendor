@@ -8,7 +8,16 @@ import java.awt.Color;
  * @file Token.java
  */
 public enum Token {
-
+    /**
+     * Fields of the Token class.
+     * @param color Color represented by an integer.
+     * #0 : Emeraude / Emerald
+     * #1 : Diamant / Diamond
+     * #2 : Saphir / Sapphire
+     * #3 : Onyx / Onyx
+     * #4 : Rubis / Ruby
+     * #5 : Or / Gold
+     */
     EMERAUDE,
     DIAMANT,
     SAPHIR,
