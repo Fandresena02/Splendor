@@ -8,7 +8,7 @@ import java.util.HashMap;
 /**
  * Class defining a Player in the Splendor game.
  * @author Christine LI - Clement LUC - Fandresena RAKOTOMAHEFA
- * @date 16/12/2022
+ * @date 18/12/2022
  * @file Player.java
  */
 

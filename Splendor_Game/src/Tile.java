@@ -4,7 +4,7 @@ import java.util.Objects;
 /**
  * Class defining a Noble Tile in the game Splendor.
  * @author Christine LI - Clement LUC - Fandresena RAKOTOMAHEFA
- * @date 17/12/2022
+ * @date 18/12/2022
  * @file Tile.java
  */
 public class Tile{
@@ -69,7 +69,7 @@ public class Tile{
     /**
      * Method that takes a string as argument and splits each character and initializes a tile's card from these elements.
      * @param line The line of the file to analyse
-     * @param refline String that is considered as reference if one element is empty
+     * @param refLine String that is considered as reference if one element is empty
      * @return A card.
      */
     public static Tile fromText(String line, String refline) {
@@ -85,7 +85,7 @@ public class Tile{
     /**
      * Methode to take a reference from a file line
      * @param line The line of the file to analyse
-     * @param separator Separator 
+     * @param separator Separator
      * @return return always True
      */
     public static boolean isRefLine(String line, String separator) {
