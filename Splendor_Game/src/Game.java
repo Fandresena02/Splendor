@@ -19,7 +19,26 @@ import java.util.Objects;
  * @file Game.java
  */
 public class Game {
-
+    /**
+     * Field of the Game Class.
+     * @param MAXPLAYERS Number maximum of player.
+     * @param VICTORY Number minimal of points to win the game.
+     * @param PRINTMYTOKENS Writing tokens.
+     * @param PRINTMYCARDS Writing cards.
+     * 
+     * @param ACTIONSAMETOKEN Writing of the action buying two same tokens.
+     * @param ACTIONDIFFTOKEN Writing of the action buying three different tokens.
+     * @param ACTIONBUYCARD Writing of the action buying a card.
+     * @param ACTIONRESERVECARD Writing of the action buying a card from the list of reserved cards.
+     * 
+     * @param nbPlayers Number of players.
+     * @param players List of all the players of the game.
+     * @param tokensStack The stack of tokens. 
+     * @param discoveryCards Discovered cards on the game board.
+     * @param cardStack Stack of cards on the game board.
+     * @param discoveryTiles Discovered tiles on the game board.
+     * @param scan Scanner.
+     */
     private final static int MAXPLAYERS = 4;
     private final static int VICTORY = 15;
     private final static String PRINTMYTOKENS = "tokens";
